@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E149646E1BD926EF003F7D2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E149646D1BD926EF003F7D2E /* AppDelegate.swift */; };
+		E14964701BD926EF003F7D2E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E149646F1BD926EF003F7D2E /* GameScene.sks */; };
+		E14964721BD926EF003F7D2E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14964711BD926EF003F7D2E /* GameScene.swift */; };
+		E14964741BD926EF003F7D2E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14964731BD926EF003F7D2E /* GameViewController.swift */; };
+		E14964771BD926EF003F7D2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E14964751BD926EF003F7D2E /* Main.storyboard */; };
+		E14964791BD926EF003F7D2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E14964781BD926EF003F7D2E /* Images.xcassets */; };
+		E149647C1BD926EF003F7D2E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E149647A1BD926EF003F7D2E /* LaunchScreen.xib */; };
+		E14964881BD926EF003F7D2E /* Condemn_KimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14964871BD926EF003F7D2E /* Condemn_KimTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E14964821BD926EF003F7D2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E14964601BD926EF003F7D2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E14964671BD926EF003F7D2E;
+			remoteInfo = "Condemn Kim";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E14964681BD926EF003F7D2E /* Condemn Kim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Condemn Kim.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E149646C1BD926EF003F7D2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E149646D1BD926EF003F7D2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E149646F1BD926EF003F7D2E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		E14964711BD926EF003F7D2E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		E14964731BD926EF003F7D2E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		E14964761BD926EF003F7D2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E14964781BD926EF003F7D2E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E149647B1BD926EF003F7D2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		E14964811BD926EF003F7D2E /* Condemn KimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Condemn KimTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E14964861BD926EF003F7D2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E14964871BD926EF003F7D2E /* Condemn_KimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condemn_KimTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E14964651BD926EF003F7D2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E149647E1BD926EF003F7D2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E149645F1BD926EF003F7D2E = {
+			isa = PBXGroup;
+			children = (
+				E149646A1BD926EF003F7D2E /* Condemn Kim */,
+				E14964841BD926EF003F7D2E /* Condemn KimTests */,
+				E14964691BD926EF003F7D2E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E14964691BD926EF003F7D2E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E14964681BD926EF003F7D2E /* Condemn Kim.app */,
+				E14964811BD926EF003F7D2E /* Condemn KimTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E149646A1BD926EF003F7D2E /* Condemn Kim */ = {
+			isa = PBXGroup;
+			children = (
+				E149646D1BD926EF003F7D2E /* AppDelegate.swift */,
+				E149646F1BD926EF003F7D2E /* GameScene.sks */,
+				E14964711BD926EF003F7D2E /* GameScene.swift */,
+				E14964731BD926EF003F7D2E /* GameViewController.swift */,
+				E14964751BD926EF003F7D2E /* Main.storyboard */,
+				E14964781BD926EF003F7D2E /* Images.xcassets */,
+				E149647A1BD926EF003F7D2E /* LaunchScreen.xib */,
+				E149646B1BD926EF003F7D2E /* Supporting Files */,
+			);
+			path = "Condemn Kim";
+			sourceTree = "<group>";
+		};
+		E149646B1BD926EF003F7D2E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E149646C1BD926EF003F7D2E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E14964841BD926EF003F7D2E /* Condemn KimTests */ = {
+			isa = PBXGroup;
+			children = (
+				E14964871BD926EF003F7D2E /* Condemn_KimTests.swift */,
+				E14964851BD926EF003F7D2E /* Supporting Files */,
+			);
+			path = "Condemn KimTests";
+			sourceTree = "<group>";
+		};
+		E14964851BD926EF003F7D2E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E14964861BD926EF003F7D2E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E14964671BD926EF003F7D2E /* Condemn Kim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E149648B1BD926EF003F7D2E /* Build configuration list for PBXNativeTarget "Condemn Kim" */;
+			buildPhases = (
+				E14964641BD926EF003F7D2E /* Sources */,
+				E14964651BD926EF003F7D2E /* Frameworks */,
+				E14964661BD926EF003F7D2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Condemn Kim";
+			productName = "Condemn Kim";
+			productReference = E14964681BD926EF003F7D2E /* Condemn Kim.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E14964801BD926EF003F7D2E /* Condemn KimTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E149648E1BD926EF003F7D2E /* Build configuration list for PBXNativeTarget "Condemn KimTests" */;
+			buildPhases = (
+				E149647D1BD926EF003F7D2E /* Sources */,
+				E149647E1BD926EF003F7D2E /* Frameworks */,
+				E149647F1BD926EF003F7D2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E14964831BD926EF003F7D2E /* PBXTargetDependency */,
+			);
+			name = "Condemn KimTests";
+			productName = "Condemn KimTests";
+			productReference = E14964811BD926EF003F7D2E /* Condemn KimTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E14964601BD926EF003F7D2E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Brandon Lassiter";
+				TargetAttributes = {
+					E14964671BD926EF003F7D2E = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					E14964801BD926EF003F7D2E = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = E14964671BD926EF003F7D2E;
+					};
+				};
+			};
+			buildConfigurationList = E14964631BD926EF003F7D2E /* Build configuration list for PBXProject "Condemn Kim" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E149645F1BD926EF003F7D2E;
+			productRefGroup = E14964691BD926EF003F7D2E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E14964671BD926EF003F7D2E /* Condemn Kim */,
+				E14964801BD926EF003F7D2E /* Condemn KimTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E14964661BD926EF003F7D2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E149647C1BD926EF003F7D2E /* LaunchScreen.xib in Resources */,
+				E14964791BD926EF003F7D2E /* Images.xcassets in Resources */,
+				E14964701BD926EF003F7D2E /* GameScene.sks in Resources */,
+				E14964771BD926EF003F7D2E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E149647F1BD926EF003F7D2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E14964641BD926EF003F7D2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E14964721BD926EF003F7D2E /* GameScene.swift in Sources */,
+				E14964741BD926EF003F7D2E /* GameViewController.swift in Sources */,
+				E149646E1BD926EF003F7D2E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E149647D1BD926EF003F7D2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E14964881BD926EF003F7D2E /* Condemn_KimTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E14964831BD926EF003F7D2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E14964671BD926EF003F7D2E /* Condemn Kim */;
+			targetProxy = E14964821BD926EF003F7D2E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E14964751BD926EF003F7D2E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E14964761BD926EF003F7D2E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E149647A1BD926EF003F7D2E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E149647B1BD926EF003F7D2E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E14964891BD926EF003F7D2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E149648A1BD926EF003F7D2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E149648C1BD926EF003F7D2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Condemn Kim/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E149648D1BD926EF003F7D2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Condemn Kim/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E149648F1BD926EF003F7D2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Condemn KimTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Condemn Kim.app/Condemn Kim";
+			};
+			name = Debug;
+		};
+		E14964901BD926EF003F7D2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Condemn KimTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Condemn Kim.app/Condemn Kim";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E14964631BD926EF003F7D2E /* Build configuration list for PBXProject "Condemn Kim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E14964891BD926EF003F7D2E /* Debug */,
+				E149648A1BD926EF003F7D2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E149648B1BD926EF003F7D2E /* Build configuration list for PBXNativeTarget "Condemn Kim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E149648C1BD926EF003F7D2E /* Debug */,
+				E149648D1BD926EF003F7D2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E149648E1BD926EF003F7D2E /* Build configuration list for PBXNativeTarget "Condemn KimTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E149648F1BD926EF003F7D2E /* Debug */,
+				E14964901BD926EF003F7D2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E14964601BD926EF003F7D2E /* Project object */;
+}
