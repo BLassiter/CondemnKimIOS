@@ -15,6 +15,20 @@
 		E14964791BD926EF003F7D2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E14964781BD926EF003F7D2E /* Images.xcassets */; };
 		E149647C1BD926EF003F7D2E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E149647A1BD926EF003F7D2E /* LaunchScreen.xib */; };
 		E14964881BD926EF003F7D2E /* Condemn_KimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14964871BD926EF003F7D2E /* Condemn_KimTests.swift */; };
+		E14964971BD927A8003F7D2E /* kimblink.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964911BD927A8003F7D2E /* kimblink.png */; };
+		E14964981BD927A8003F7D2E /* kimhitsprite.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964921BD927A8003F7D2E /* kimhitsprite.png */; };
+		E14964991BD927A8003F7D2E /* kimlaugh1.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964931BD927A8003F7D2E /* kimlaugh1.png */; };
+		E149649A1BD927A8003F7D2E /* kimlaugh2.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964941BD927A8003F7D2E /* kimlaugh2.png */; };
+		E149649B1BD927A8003F7D2E /* kimnormal.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964951BD927A8003F7D2E /* kimnormal.png */; };
+		E149649C1BD927A8003F7D2E /* marriagelicense.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964961BD927A8003F7D2E /* marriagelicense.png */; };
+		E14964A01BD93322003F7D2E /* bgbottom.png in Resources */ = {isa = PBXBuildFile; fileRef = E149649E1BD93322003F7D2E /* bgbottom.png */; };
+		E14964A11BD93322003F7D2E /* bgtop.png in Resources */ = {isa = PBXBuildFile; fileRef = E149649F1BD93322003F7D2E /* bgtop.png */; };
+		E14964A41BD953E1003F7D2E /* settingsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964A21BD953E1003F7D2E /* settingsicon.png */; };
+		E14964A51BD953E1003F7D2E /* storebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964A31BD953E1003F7D2E /* storebutton.png */; };
+		E14964A71BD955AE003F7D2E /* divorcebuttonnew.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964A61BD955AE003F7D2E /* divorcebuttonnew.png */; };
+		E14964A91BD956AE003F7D2E /* missesbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964A81BD956AE003F7D2E /* missesbutton.png */; };
+		E14964AB1BD95CC1003F7D2E /* inventorybutton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964AA1BD95CC1003F7D2E /* inventorybutton.png */; };
+		E14964AD1BD95D82003F7D2E /* questionbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964AC1BD95D82003F7D2E /* questionbutton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +54,20 @@
 		E14964811BD926EF003F7D2E /* Condemn KimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Condemn KimTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E14964861BD926EF003F7D2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E14964871BD926EF003F7D2E /* Condemn_KimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condemn_KimTests.swift; sourceTree = "<group>"; };
+		E14964911BD927A8003F7D2E /* kimblink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kimblink.png; sourceTree = "<group>"; };
+		E14964921BD927A8003F7D2E /* kimhitsprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kimhitsprite.png; sourceTree = "<group>"; };
+		E14964931BD927A8003F7D2E /* kimlaugh1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kimlaugh1.png; sourceTree = "<group>"; };
+		E14964941BD927A8003F7D2E /* kimlaugh2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kimlaugh2.png; sourceTree = "<group>"; };
+		E14964951BD927A8003F7D2E /* kimnormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kimnormal.png; sourceTree = "<group>"; };
+		E14964961BD927A8003F7D2E /* marriagelicense.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marriagelicense.png; sourceTree = "<group>"; };
+		E149649E1BD93322003F7D2E /* bgbottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgbottom.png; sourceTree = "<group>"; };
+		E149649F1BD93322003F7D2E /* bgtop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgtop.png; sourceTree = "<group>"; };
+		E14964A21BD953E1003F7D2E /* settingsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsicon.png; sourceTree = "<group>"; };
+		E14964A31BD953E1003F7D2E /* storebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storebutton.png; sourceTree = "<group>"; };
+		E14964A61BD955AE003F7D2E /* divorcebuttonnew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = divorcebuttonnew.png; sourceTree = "<group>"; };
+		E14964A81BD956AE003F7D2E /* missesbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missesbutton.png; sourceTree = "<group>"; };
+		E14964AA1BD95CC1003F7D2E /* inventorybutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventorybutton.png; sourceTree = "<group>"; };
+		E14964AC1BD95D82003F7D2E /* questionbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionbutton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +112,7 @@
 				E149646D1BD926EF003F7D2E /* AppDelegate.swift */,
 				E149646F1BD926EF003F7D2E /* GameScene.sks */,
 				E14964711BD926EF003F7D2E /* GameScene.swift */,
+				E149649D1BD927B1003F7D2E /* images */,
 				E14964731BD926EF003F7D2E /* GameViewController.swift */,
 				E14964751BD926EF003F7D2E /* Main.storyboard */,
 				E14964781BD926EF003F7D2E /* Images.xcassets */,
@@ -116,6 +145,27 @@
 				E14964861BD926EF003F7D2E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E149649D1BD927B1003F7D2E /* images */ = {
+			isa = PBXGroup;
+			children = (
+				E14964AC1BD95D82003F7D2E /* questionbutton.png */,
+				E14964AA1BD95CC1003F7D2E /* inventorybutton.png */,
+				E14964A81BD956AE003F7D2E /* missesbutton.png */,
+				E14964A61BD955AE003F7D2E /* divorcebuttonnew.png */,
+				E14964A21BD953E1003F7D2E /* settingsicon.png */,
+				E14964A31BD953E1003F7D2E /* storebutton.png */,
+				E149649E1BD93322003F7D2E /* bgbottom.png */,
+				E149649F1BD93322003F7D2E /* bgtop.png */,
+				E14964911BD927A8003F7D2E /* kimblink.png */,
+				E14964921BD927A8003F7D2E /* kimhitsprite.png */,
+				E14964931BD927A8003F7D2E /* kimlaugh1.png */,
+				E14964941BD927A8003F7D2E /* kimlaugh2.png */,
+				E14964951BD927A8003F7D2E /* kimnormal.png */,
+				E14964961BD927A8003F7D2E /* marriagelicense.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,10 +248,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E14964A41BD953E1003F7D2E /* settingsicon.png in Resources */,
+				E14964A11BD93322003F7D2E /* bgtop.png in Resources */,
 				E149647C1BD926EF003F7D2E /* LaunchScreen.xib in Resources */,
+				E14964AD1BD95D82003F7D2E /* questionbutton.png in Resources */,
+				E14964A91BD956AE003F7D2E /* missesbutton.png in Resources */,
+				E14964971BD927A8003F7D2E /* kimblink.png in Resources */,
 				E14964791BD926EF003F7D2E /* Images.xcassets in Resources */,
+				E149649B1BD927A8003F7D2E /* kimnormal.png in Resources */,
+				E14964AB1BD95CC1003F7D2E /* inventorybutton.png in Resources */,
 				E14964701BD926EF003F7D2E /* GameScene.sks in Resources */,
+				E14964A51BD953E1003F7D2E /* storebutton.png in Resources */,
+				E149649A1BD927A8003F7D2E /* kimlaugh2.png in Resources */,
+				E14964A01BD93322003F7D2E /* bgbottom.png in Resources */,
+				E14964981BD927A8003F7D2E /* kimhitsprite.png in Resources */,
 				E14964771BD926EF003F7D2E /* Main.storyboard in Resources */,
+				E14964991BD927A8003F7D2E /* kimlaugh1.png in Resources */,
+				E149649C1BD927A8003F7D2E /* marriagelicense.png in Resources */,
+				E14964A71BD955AE003F7D2E /* divorcebuttonnew.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
