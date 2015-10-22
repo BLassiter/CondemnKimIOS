@@ -10,13 +10,24 @@ import UIKit
 import SpriteKit
 
 extension SKNode {
-    class func unarchiveFromFile(file : String) -> SKNode? {
+    class func unarchiveFromFile(file : String, type: Int) -> SKNode? {
         if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
             var sceneData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil)!
             var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
             
             archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
-            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! GameScene
+            var scene : SKScene?;
+            
+            if(type == 0) {
+                
+                scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! GameScene
+             
+            } else {
+                
+                scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! WinScene
+
+            }
+            
             archiver.finishDecoding()
             return scene
         } else {
@@ -30,7 +41,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
+        if let scene = GameScene.unarchiveFromFile("GameScene", type: 0) as? GameScene {
             // Configure the view.
             let skView = self.view as! SKView
 

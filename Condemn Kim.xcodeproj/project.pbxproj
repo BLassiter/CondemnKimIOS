@@ -29,6 +29,24 @@
 		E14964A91BD956AE003F7D2E /* missesbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964A81BD956AE003F7D2E /* missesbutton.png */; };
 		E14964AB1BD95CC1003F7D2E /* inventorybutton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964AA1BD95CC1003F7D2E /* inventorybutton.png */; };
 		E14964AD1BD95D82003F7D2E /* questionbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964AC1BD95D82003F7D2E /* questionbutton.png */; };
+		E14964B11BD965AB003F7D2E /* WinScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E14964B01BD965AB003F7D2E /* WinScene.sks */; };
+		E14964B31BD965BB003F7D2E /* WinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14964B21BD965BB003F7D2E /* WinScene.swift */; };
+		E14964B51BD96660003F7D2E /* gameoverbg.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964B41BD96660003F7D2E /* gameoverbg.png */; };
+		E14964B71BD968FC003F7D2E /* continuebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964B61BD968FC003F7D2E /* continuebutton.png */; };
+		E14964C61BD97120003F7D2E /* beepend.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E14964B91BD97120003F7D2E /* beepend.m4a */; };
+		E14964C71BD97120003F7D2E /* beepnew.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E14964BA1BD97120003F7D2E /* beepnew.m4a */; };
+		E14964C81BD97120003F7D2E /* beepsingle.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E14964BB1BD97120003F7D2E /* beepsingle.m4a */; };
+		E14964C91BD97120003F7D2E /* bodyhit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E14964BC1BD97120003F7D2E /* bodyhit.mp3 */; };
+		E14964CA1BD97120003F7D2E /* happy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E14964BD1BD97120003F7D2E /* happy.mp3 */; };
+		E14964CB1BD97120003F7D2E /* hitsound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E14964BE1BD97120003F7D2E /* hitsound.mp3 */; };
+		E14964CC1BD97120003F7D2E /* simplehappy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E14964BF1BD97120003F7D2E /* simplehappy.mp3 */; };
+		E14964CD1BD97120003F7D2E /* witch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E14964C01BD97120003F7D2E /* witch.mp3 */; };
+		E14964CE1BD97120003F7D2E /* witch2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E14964C11BD97120003F7D2E /* witch2.mp3 */; };
+		E14964CF1BD97120003F7D2E /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14964C21BD97120003F7D2E /* beep.wav */; };
+		E14964D01BD97120003F7D2E /* behappy.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14964C31BD97120003F7D2E /* behappy.wav */; };
+		E14964D11BD97120003F7D2E /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14964C41BD97120003F7D2E /* button.wav */; };
+		E14964D21BD97120003F7D2E /* divorce.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14964C51BD97120003F7D2E /* divorce.wav */; };
+		E14964D41BD97777003F7D2E /* losetext.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964D31BD97777003F7D2E /* losetext.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +86,24 @@
 		E14964A81BD956AE003F7D2E /* missesbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missesbutton.png; sourceTree = "<group>"; };
 		E14964AA1BD95CC1003F7D2E /* inventorybutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventorybutton.png; sourceTree = "<group>"; };
 		E14964AC1BD95D82003F7D2E /* questionbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionbutton.png; sourceTree = "<group>"; };
+		E14964B01BD965AB003F7D2E /* WinScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WinScene.sks; sourceTree = "<group>"; };
+		E14964B21BD965BB003F7D2E /* WinScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinScene.swift; sourceTree = "<group>"; };
+		E14964B41BD96660003F7D2E /* gameoverbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameoverbg.png; sourceTree = "<group>"; };
+		E14964B61BD968FC003F7D2E /* continuebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = continuebutton.png; sourceTree = "<group>"; };
+		E14964B91BD97120003F7D2E /* beepend.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = beepend.m4a; sourceTree = "<group>"; };
+		E14964BA1BD97120003F7D2E /* beepnew.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = beepnew.m4a; sourceTree = "<group>"; };
+		E14964BB1BD97120003F7D2E /* beepsingle.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = beepsingle.m4a; sourceTree = "<group>"; };
+		E14964BC1BD97120003F7D2E /* bodyhit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bodyhit.mp3; sourceTree = "<group>"; };
+		E14964BD1BD97120003F7D2E /* happy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = happy.mp3; sourceTree = "<group>"; };
+		E14964BE1BD97120003F7D2E /* hitsound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hitsound.mp3; sourceTree = "<group>"; };
+		E14964BF1BD97120003F7D2E /* simplehappy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = simplehappy.mp3; sourceTree = "<group>"; };
+		E14964C01BD97120003F7D2E /* witch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = witch.mp3; sourceTree = "<group>"; };
+		E14964C11BD97120003F7D2E /* witch2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = witch2.mp3; sourceTree = "<group>"; };
+		E14964C21BD97120003F7D2E /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
+		E14964C31BD97120003F7D2E /* behappy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = behappy.wav; sourceTree = "<group>"; };
+		E14964C41BD97120003F7D2E /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
+		E14964C51BD97120003F7D2E /* divorce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = divorce.wav; sourceTree = "<group>"; };
+		E14964D31BD97777003F7D2E /* losetext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = losetext.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,15 +145,18 @@
 		E149646A1BD926EF003F7D2E /* Condemn Kim */ = {
 			isa = PBXGroup;
 			children = (
+				E149649D1BD927B1003F7D2E /* images */,
+				E14964B81BD970F0003F7D2E /* audio */,
 				E149646D1BD926EF003F7D2E /* AppDelegate.swift */,
 				E149646F1BD926EF003F7D2E /* GameScene.sks */,
 				E14964711BD926EF003F7D2E /* GameScene.swift */,
-				E149649D1BD927B1003F7D2E /* images */,
 				E14964731BD926EF003F7D2E /* GameViewController.swift */,
 				E14964751BD926EF003F7D2E /* Main.storyboard */,
 				E14964781BD926EF003F7D2E /* Images.xcassets */,
 				E149647A1BD926EF003F7D2E /* LaunchScreen.xib */,
 				E149646B1BD926EF003F7D2E /* Supporting Files */,
+				E14964B01BD965AB003F7D2E /* WinScene.sks */,
+				E14964B21BD965BB003F7D2E /* WinScene.swift */,
 			);
 			path = "Condemn Kim";
 			sourceTree = "<group>";
@@ -150,6 +189,9 @@
 		E149649D1BD927B1003F7D2E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E14964D31BD97777003F7D2E /* losetext.png */,
+				E14964B61BD968FC003F7D2E /* continuebutton.png */,
+				E14964B41BD96660003F7D2E /* gameoverbg.png */,
 				E14964AC1BD95D82003F7D2E /* questionbutton.png */,
 				E14964AA1BD95CC1003F7D2E /* inventorybutton.png */,
 				E14964A81BD956AE003F7D2E /* missesbutton.png */,
@@ -166,6 +208,26 @@
 				E14964961BD927A8003F7D2E /* marriagelicense.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		E14964B81BD970F0003F7D2E /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				E14964B91BD97120003F7D2E /* beepend.m4a */,
+				E14964BA1BD97120003F7D2E /* beepnew.m4a */,
+				E14964BB1BD97120003F7D2E /* beepsingle.m4a */,
+				E14964BC1BD97120003F7D2E /* bodyhit.mp3 */,
+				E14964BD1BD97120003F7D2E /* happy.mp3 */,
+				E14964BE1BD97120003F7D2E /* hitsound.mp3 */,
+				E14964BF1BD97120003F7D2E /* simplehappy.mp3 */,
+				E14964C01BD97120003F7D2E /* witch.mp3 */,
+				E14964C11BD97120003F7D2E /* witch2.mp3 */,
+				E14964C21BD97120003F7D2E /* beep.wav */,
+				E14964C31BD97120003F7D2E /* behappy.wav */,
+				E14964C41BD97120003F7D2E /* button.wav */,
+				E14964C51BD97120003F7D2E /* divorce.wav */,
+			);
+			name = audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,24 +310,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E14964C71BD97120003F7D2E /* beepnew.m4a in Resources */,
+				E14964CC1BD97120003F7D2E /* simplehappy.mp3 in Resources */,
+				E14964B71BD968FC003F7D2E /* continuebutton.png in Resources */,
 				E14964A41BD953E1003F7D2E /* settingsicon.png in Resources */,
 				E14964A11BD93322003F7D2E /* bgtop.png in Resources */,
 				E149647C1BD926EF003F7D2E /* LaunchScreen.xib in Resources */,
+				E14964C91BD97120003F7D2E /* bodyhit.mp3 in Resources */,
+				E14964C61BD97120003F7D2E /* beepend.m4a in Resources */,
 				E14964AD1BD95D82003F7D2E /* questionbutton.png in Resources */,
 				E14964A91BD956AE003F7D2E /* missesbutton.png in Resources */,
 				E14964971BD927A8003F7D2E /* kimblink.png in Resources */,
 				E14964791BD926EF003F7D2E /* Images.xcassets in Resources */,
 				E149649B1BD927A8003F7D2E /* kimnormal.png in Resources */,
 				E14964AB1BD95CC1003F7D2E /* inventorybutton.png in Resources */,
+				E14964C81BD97120003F7D2E /* beepsingle.m4a in Resources */,
 				E14964701BD926EF003F7D2E /* GameScene.sks in Resources */,
+				E14964D01BD97120003F7D2E /* behappy.wav in Resources */,
 				E14964A51BD953E1003F7D2E /* storebutton.png in Resources */,
+				E14964CE1BD97120003F7D2E /* witch2.mp3 in Resources */,
 				E149649A1BD927A8003F7D2E /* kimlaugh2.png in Resources */,
 				E14964A01BD93322003F7D2E /* bgbottom.png in Resources */,
 				E14964981BD927A8003F7D2E /* kimhitsprite.png in Resources */,
 				E14964771BD926EF003F7D2E /* Main.storyboard in Resources */,
+				E14964CD1BD97120003F7D2E /* witch.mp3 in Resources */,
+				E14964CF1BD97120003F7D2E /* beep.wav in Resources */,
 				E14964991BD927A8003F7D2E /* kimlaugh1.png in Resources */,
+				E14964CB1BD97120003F7D2E /* hitsound.mp3 in Resources */,
+				E14964D21BD97120003F7D2E /* divorce.wav in Resources */,
+				E14964B51BD96660003F7D2E /* gameoverbg.png in Resources */,
 				E149649C1BD927A8003F7D2E /* marriagelicense.png in Resources */,
+				E14964D11BD97120003F7D2E /* button.wav in Resources */,
 				E14964A71BD955AE003F7D2E /* divorcebuttonnew.png in Resources */,
+				E14964D41BD97777003F7D2E /* losetext.png in Resources */,
+				E14964B11BD965AB003F7D2E /* WinScene.sks in Resources */,
+				E14964CA1BD97120003F7D2E /* happy.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E14964721BD926EF003F7D2E /* GameScene.swift in Sources */,
+				E14964B31BD965BB003F7D2E /* WinScene.swift in Sources */,
 				E14964741BD926EF003F7D2E /* GameViewController.swift in Sources */,
 				E149646E1BD926EF003F7D2E /* AppDelegate.swift in Sources */,
 			);

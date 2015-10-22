@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -23,12 +24,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var divorceLabel : SKLabelNode?
     var inventoryButton : SKSpriteNode?
     var helpButton : SKSpriteNode?;
-    
+    var continueButton : SKSpriteNode?
+    var gameOver : Bool = false;
     var misses = 0;
     var numHits = 0;
+    var audioPlayer : AVAudioPlayer?
+    var audioPlayerLaugh : AVAudioPlayer?
     
     override func didMoveToView(view: SKView) {
-
+        self.backgroundColor = UIColor.blackColor();
+        view.backgroundColor = UIColor.blackColor();
         self.physicsBody = nil;
         self.physicsWorld.contactDelegate = self
         setupGame()
@@ -37,13 +42,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupGame() {
         
+        var error : NSError?;
+        
+        let url:NSURL? = NSBundle.mainBundle().URLForResource("behappy", withExtension: "wav")
+        audioPlayer = AVAudioPlayer(contentsOfURL: url, error: &error)
+        
+        if(audioPlayer != nil) {
+            audioPlayer!.numberOfLoops = -1;
+            audioPlayer!.play();
+        } else {
+            println("Error: \(error!.localizedDescription)")
+        }
+        
         var swipeUp = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
         swipeUp.direction = UISwipeGestureRecognizerDirection.Up
         self.view!.addGestureRecognizer(swipeUp)
         
         kimSprite = SKSpriteNode(imageNamed:"kimnormal")
 
-        kimSprite!.setScale(0.5);
+        kimSprite!.setScale(0.35);
         kimSprite!.zPosition = 0;
         kimSprite!.position = CGPointMake(self.size.width / 2, self.size.height / 1.7);
         kimSprite!.physicsBody = nil;
@@ -61,7 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let bgTop = SKSpriteNode(imageNamed: "bgTop");
         bgTop.zPosition = -500;
-        bgTop.setScale(0.4);
+        bgTop.setScale(0.45);
         bgTop.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height - bgTop.size.height / 2);
 
         let bgBottom = SKSpriteNode(imageNamed: "bgBottom");
@@ -138,11 +155,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(bgTop);
         self.addChild(kimSprite!);
         self.addChild(bgBottom);
-        
+
         startDefaultAnimation();
         changeDirection();
         updateHits();
         updateLabels();
+        
+
         
     }
     
@@ -167,16 +186,62 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func endGame(win: Bool) {
         
         if(win) {
-            
+            audioPlayer!.stop();
             var level = NSUserDefaults.standardUserDefaults().integerForKey("level");
             level++;
             NSUserDefaults.standardUserDefaults().setInteger(level, forKey: "level");
             println("Win!");
             
+            
+            if let scene = WinScene.unarchiveFromFile("WinScene", type: 1) as? WinScene {
+                // Configure the view.
+                let skView = self.view! as SKView
+                
+                /* Sprite Kit applies additional optimizations to improve rendering performance */
+                skView.ignoresSiblingOrder = true
+                
+                /* Set the scale mode to scale to fit the window */
+                scene.scaleMode = .AspectFill
+                
+                skView.presentScene(scene)
+            }
+            
         } else {
             
+            
+            var error2 : NSError?;
+            
+            let url2:NSURL? = NSBundle.mainBundle().URLForResource("witch2", withExtension: "mp3")
+            audioPlayerLaugh = AVAudioPlayer(contentsOfURL: url2, error: &error2)
+            
+            if(audioPlayerLaugh != nil) {
+                audioPlayerLaugh!.numberOfLoops = -1;
+                audioPlayerLaugh!.play();
+            } else {
+                println("Error: \(error2!.localizedDescription)")
+            }
+            
+            gameOver = false;
             println("Lost!");
             
+            kimSprite!.removeAllActions();
+            kimSprite!.runAction(SKAction.rotateToAngle(0, duration: 0.25));
+            
+            var laughAnimation = SKAction.animateWithTextures([SKTexture(imageNamed: "kimlaugh1"), SKTexture(imageNamed: "kimlaugh2")], timePerFrame: 0.2);
+            
+            kimSprite!.runAction(SKAction.repeatActionForever(laughAnimation));
+            
+            continueButton = SKSpriteNode(imageNamed: "continuebutton");
+            continueButton!.zPosition = 1200;
+            continueButton!.position = CGPointMake(self.size.width / 2, 120);
+            continueButton!.setScale(0.35);
+            self.addChild(continueButton!);
+            
+            var loseText : SKSpriteNode = SKSpriteNode(imageNamed: "losetext");
+            loseText.position = CGPointMake(self.size.width / 2, self.size.height / 2);
+            loseText.setScale(0.5)
+            loseText.zPosition = 2000;
+            self.addChild(loseText);
         }
         
     }
@@ -186,6 +251,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         missesLabel!.text = (3 - misses > 0) ? "\(3 - misses)" : "0";
         
         var divorces = NSUserDefaults.standardUserDefaults().integerForKey("divorces");
+        
+        divorces = 1;
         
         divorceLabel!.text = "\(divorces)";
         
@@ -223,7 +290,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let animationSequence = SKAction.sequence([hitAnimation, normalAnimation]);
         
         kimSprite!.runAction(animationSequence, completion: { () -> Void in
+            self.kimSprite!.removeAllActions();
             self.startDefaultAnimation();
+            self.changeDirection();
         });
     }
     
@@ -245,7 +314,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         
-        var speedModifier = 1 + floor(Double(level!) / 100);
+        var speedModifier = 1 + Double(level!) / 100;
+        
+        println("Speed Mod: \(speedModifier)");
         
         if(speedModifier < 1) {
             speedModifier = 1;
@@ -255,7 +326,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var tempX = targetX;
         var diff : Float = 0;
         
-        println("Width: \(screenSize.width)");
         if(targetX < (Float(self.size.width) / 2)) {
             //go right
             
@@ -264,7 +334,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             targetX = (Float(self.size.width) / 2) + randomFloat;
             
-            println("TargetX: \(targetX)");
             
             diff = targetX - tempX;
             
@@ -275,7 +344,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             targetX = (Float(self.size.width) / 2) - randomFloat;
             
-            println("TargetX: \(targetX)");
 
             diff = tempX - targetX;
             
@@ -285,7 +353,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         var targetPosition = CGPointMake(CGFloat(targetX), kimSprite!.position.y);
         
-        println("Target Position: \(targetPosition)")
+        
         
 //        if(speedModifier > 0) {
 //            speedScale = staticSpeedScale + (speedModifier);
@@ -298,6 +366,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             speed *= 2;
         }
         
+        println("Speed: \(speed)")
         kimSprite!.runAction(SKAction.moveTo(targetPosition, duration: speed), completion: { () -> Void in
             self.changeDirection();
         })
@@ -327,8 +396,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             selectedThrowable = "marriagelicense";
         }
         
+        self.runAction(SKAction.playSoundFileNamed("bodyhit.mp3", waitForCompletion: false));
+        
         var projectile = SKSpriteNode(imageNamed: selectedThrowable!)
-        projectile.setScale(0.5);
+        projectile.setScale(0.35);
         projectile.zPosition = 501;
         
         let rotateAction = SKAction.rotateByAngle(5, duration: 0.25);
@@ -376,6 +447,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var projectileNode = projectile.node! as! SKSpriteNode;
             projectileNode.removeAllActions();
             projectileNode.removeFromParent();
+
             
         }
 
@@ -395,6 +467,59 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             endGame(false);
         }
         self.updateLabels();
+        
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        
+        for touch: AnyObject in touches {
+            // Get the location of the touch in this scene
+            let location = touch.locationInNode(self)
+            // Check if the location of the touch is within the button's bounds
+            
+            if(continueButton != nil) {
+                
+                if continueButton!.containsPoint(location) {
+
+                    audioPlayer!.stop();
+                    audioPlayerLaugh!.stop();
+                    if let scene = GameScene.unarchiveFromFile("GameScene", type: 0) as? GameScene {
+                        // Configure the view.
+                        let skView = self.view! as SKView
+                        
+                        /* Sprite Kit applies additional optimizations to improve rendering performance */
+                        skView.ignoresSiblingOrder = true
+                        
+                        /* Set the scale mode to scale to fit the window */
+                        scene.scaleMode = .AspectFill
+                        
+                        skView.presentScene(scene)
+                    }
+                }
+            
+            }
+            
+            if(divorceButton!.containsPoint(location)) {
+                
+                var numDivorces = NSUserDefaults.standardUserDefaults().integerForKey("divorces");
+                
+                numDivorces = 1;
+
+                if(numDivorces > 0 && !divorceUsed) {
+                    
+                    numDivorces--;
+                    NSUserDefaults.standardUserDefaults().setInteger(1, forKey: "divorces");
+                    divorceUsed = true;
+                    
+                } else {
+                    
+                    var alert = UIAlertView(title: "No Divorces", message: "Sorry, it seems that you are out of divorces!", delegate: nil, cancelButtonTitle: "Ok");
+                    alert.show();
+                    
+                }
+                
+            }
+        }
         
     }
 
