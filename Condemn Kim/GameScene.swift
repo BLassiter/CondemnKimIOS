@@ -45,16 +45,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var error : NSError?;
         
         let url:NSURL? = NSBundle.mainBundle().URLForResource("behappy", withExtension: "wav")
-        audioPlayer = AVAudioPlayer(contentsOfURL: url, error: &error)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOfURL: url!)
+        } catch let error1 as NSError {
+            error = error1
+            audioPlayer = nil
+        }
         
         if(audioPlayer != nil) {
             audioPlayer!.numberOfLoops = -1;
             audioPlayer!.play();
         } else {
-            println("Error: \(error!.localizedDescription)")
+            print("Error: \(error!.localizedDescription)")
         }
         
-        var swipeUp = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
         swipeUp.direction = UISwipeGestureRecognizerDirection.Up
         self.view!.addGestureRecognizer(swipeUp)
         
@@ -190,7 +195,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var level = NSUserDefaults.standardUserDefaults().integerForKey("level");
             level++;
             NSUserDefaults.standardUserDefaults().setInteger(level, forKey: "level");
-            println("Win!");
+            print("Win!");
             
             
             if let scene = WinScene.unarchiveFromFile("WinScene", type: 1) as? WinScene {
@@ -212,22 +217,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var error2 : NSError?;
             
             let url2:NSURL? = NSBundle.mainBundle().URLForResource("witch2", withExtension: "mp3")
-            audioPlayerLaugh = AVAudioPlayer(contentsOfURL: url2, error: &error2)
+            do {
+                audioPlayerLaugh = try AVAudioPlayer(contentsOfURL: url2!)
+            } catch let error as NSError {
+                error2 = error
+                audioPlayerLaugh = nil
+            }
             
             if(audioPlayerLaugh != nil) {
                 audioPlayerLaugh!.numberOfLoops = -1;
                 audioPlayerLaugh!.play();
             } else {
-                println("Error: \(error2!.localizedDescription)")
+                print("Error: \(error2!.localizedDescription)")
             }
             
             gameOver = false;
-            println("Lost!");
+            print("Lost!");
             
             kimSprite!.removeAllActions();
             kimSprite!.runAction(SKAction.rotateToAngle(0, duration: 0.25));
             
-            var laughAnimation = SKAction.animateWithTextures([SKTexture(imageNamed: "kimlaugh1"), SKTexture(imageNamed: "kimlaugh2")], timePerFrame: 0.2);
+            let laughAnimation = SKAction.animateWithTextures([SKTexture(imageNamed: "kimlaugh1"), SKTexture(imageNamed: "kimlaugh2")], timePerFrame: 0.2);
             
             kimSprite!.runAction(SKAction.repeatActionForever(laughAnimation));
             
@@ -237,7 +247,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             continueButton!.setScale(0.35);
             self.addChild(continueButton!);
             
-            var loseText : SKSpriteNode = SKSpriteNode(imageNamed: "losetext");
+            let loseText : SKSpriteNode = SKSpriteNode(imageNamed: "losetext");
             loseText.position = CGPointMake(self.size.width / 2, self.size.height / 2);
             loseText.setScale(0.5)
             loseText.zPosition = 2000;
@@ -316,21 +326,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         var speedModifier = 1 + Double(level!) / 100;
         
-        println("Speed Mod: \(speedModifier)");
+        print("Speed Mod: \(speedModifier)");
         
         if(speedModifier < 1) {
             speedModifier = 1;
         }
         
         
-        var tempX = targetX;
+        let tempX = targetX;
         var diff : Float = 0;
         
         if(targetX < (Float(self.size.width) / 2)) {
             //go right
             
-            var random = arc4random_uniform(UInt32(self.size.width / 2));
-            var randomFloat : Float = Float(random);
+            let random = arc4random_uniform(UInt32(self.size.width / 2));
+            let randomFloat : Float = Float(random);
             
             targetX = (Float(self.size.width) / 2) + randomFloat;
             
@@ -339,8 +349,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         } else {
             // go left
-            var random = arc4random_uniform(UInt32(self.size.width / 2));
-            var randomFloat : Float = Float(random);
+            let random = arc4random_uniform(UInt32(self.size.width / 2));
+            let randomFloat : Float = Float(random);
             
             targetX = (Float(self.size.width) / 2) - randomFloat;
             
@@ -351,7 +361,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        var targetPosition = CGPointMake(CGFloat(targetX), kimSprite!.position.y);
+        let targetPosition = CGPointMake(CGFloat(targetX), kimSprite!.position.y);
         
         
         
@@ -359,14 +369,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            speedScale = staticSpeedScale + (speedModifier);
 //        }
         
-        var temp1 : Float = Float((2 / speedScale) * speedModifier);
+        let temp1 : Float = Float((2 / speedScale) * speedModifier);
         var speed : NSTimeInterval = NSTimeInterval((diff / temp1) / 60);
 
         if(divorceUsed) {
             speed *= 2;
         }
         
-        println("Speed: \(speed)")
+        print("Speed: \(speed)")
         kimSprite!.runAction(SKAction.moveTo(targetPosition, duration: speed), completion: { () -> Void in
             self.changeDirection();
         })
@@ -398,7 +408,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.runAction(SKAction.playSoundFileNamed("bodyhit.mp3", waitForCompletion: false));
         
-        var projectile = SKSpriteNode(imageNamed: selectedThrowable!)
+        let projectile = SKSpriteNode(imageNamed: selectedThrowable!)
         projectile.setScale(0.35);
         projectile.zPosition = 501;
         
@@ -429,14 +439,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact) {
         
-        println("bitmask1: \(contact.bodyA.categoryBitMask)")
-        println("bitmask2: \(contact.bodyB.categoryBitMask)")
+        print("bitmask1: \(contact.bodyA.categoryBitMask)")
+        print("bitmask2: \(contact.bodyB.categoryBitMask)")
         
-        println("name1: \(contact.bodyA.node!.name)")
-        println("name2: \(contact.bodyB.node!.name)")
+        print("name1: \(contact.bodyA.node!.name)")
+        print("name2: \(contact.bodyB.node!.name)")
         
-        var other:SKPhysicsBody = contact.bodyA.categoryBitMask == projectileCategory ? contact.bodyB : contact.bodyA
-        var projectile:SKPhysicsBody = contact.bodyA.categoryBitMask == projectileCategory ? contact.bodyA : contact.bodyB
+        let other:SKPhysicsBody = contact.bodyA.categoryBitMask == projectileCategory ? contact.bodyB : contact.bodyA
+        let projectile:SKPhysicsBody = contact.bodyA.categoryBitMask == projectileCategory ? contact.bodyA : contact.bodyB
         
         if(other.node!.name == "kim" && projectile.node!.name == "projectile") {
             
@@ -444,7 +454,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             numHits++;
             updateHits()
-            var projectileNode = projectile.node! as! SKSpriteNode;
+            let projectileNode = projectile.node! as! SKSpriteNode;
             projectileNode.removeAllActions();
             projectileNode.removeFromParent();
 
@@ -470,7 +480,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         for touch: AnyObject in touches {
             // Get the location of the touch in this scene
@@ -513,7 +523,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                 } else {
                     
-                    var alert = UIAlertView(title: "No Divorces", message: "Sorry, it seems that you are out of divorces!", delegate: nil, cancelButtonTitle: "Ok");
+                    let alert = UIAlertView(title: "No Divorces", message: "Sorry, it seems that you are out of divorces!", delegate: nil, cancelButtonTitle: "Ok");
                     alert.show();
                     
                 }

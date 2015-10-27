@@ -20,12 +20,17 @@ class WinScene: SKScene {
         var error : NSError?;
         
         let url:NSURL? = NSBundle.mainBundle().URLForResource("simplehappy", withExtension: "mp3")
-        audioPlayer = AVAudioPlayer(contentsOfURL: url, error: &error)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOfURL: url!)
+        } catch let error1 as NSError {
+            error = error1
+            audioPlayer = nil
+        }
         
         if(audioPlayer != nil) {
             audioPlayer!.play();
         } else {
-            println("Error: \(error!.localizedDescription)")
+            print("Error: \(error!.localizedDescription)")
         }
         
         self.backgroundColor = UIColor.blackColor();
@@ -42,7 +47,7 @@ class WinScene: SKScene {
         
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         for touch: AnyObject in touches {
             // Get the location of the touch in this scene
