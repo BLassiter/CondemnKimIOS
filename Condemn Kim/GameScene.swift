@@ -8,16 +8,18 @@
 
 import SpriteKit
 import AVFoundation
+import UIKit
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
     
+    var movingSlider : Bool = false;
     var kimSprite : SKSpriteNode?;
     var kimCategory : UInt32 = 2;
     var projectileCategory : UInt32 = 4;
     let screenSize: CGRect = UIScreen.mainScreen().bounds;
     var hitsLeftLabel : SKLabelNode?;
     var storeButton : SKSpriteNode?;
-    var settingsButton : SKSpriteNode?;
+    var muteButton : SKSpriteNode?;
     var divorceButton : SKSpriteNode?
     var missesButton : SKSpriteNode?
     var missesLabel : SKLabelNode?
@@ -30,6 +32,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var numHits = 0;
     var audioPlayer : AVAudioPlayer?
     var audioPlayerLaugh : AVAudioPlayer?
+    var positionSlider : SKSpriteNode?
+    var track : SKSpriteNode?;
+    
+    var divorceAlert : UIAlertView?;
+    var infoAlert : UIAlertView?;
     
     override func didMoveToView(view: SKView) {
         self.backgroundColor = UIColor.blackColor();
@@ -41,6 +48,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setupGame() {
+        
+        muted = NSUserDefaults.standardUserDefaults().boolForKey("muted");
         
         var error : NSError?;
         
@@ -54,7 +63,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if(audioPlayer != nil) {
             audioPlayer!.numberOfLoops = -1;
-            audioPlayer!.play();
+            if(!muted) {
+                audioPlayer!.play();
+            }
         } else {
             print("Error: \(error!.localizedDescription)")
         }
@@ -109,10 +120,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         storeButton!.position = CGPointMake(self.size.width * 0.324, self.size.height - 34);
         storeButton!.zPosition = 1000;
         
-        settingsButton = SKSpriteNode(imageNamed: "settingsicon");
-        settingsButton!.setScale(0.305);
-        settingsButton!.position = CGPointMake(self.size.width * 0.379, self.size.height - 34);
-        settingsButton!.zPosition = 1000;
+        var muteImage : String?;
+        
+        if(muted) {
+            muteImage = "muteon";
+        } else {
+            muteImage = "muteoff";
+        }
+        
+        muteButton = SKSpriteNode(imageNamed: muteImage!);
+        muteButton!.setScale(0.305);
+        muteButton!.position = CGPointMake(self.size.width * 0.379, self.size.height - 34);
+        muteButton!.zPosition = 1000;
         
         divorceButton = SKSpriteNode(imageNamed: "divorcebuttonnew");
         divorceButton!.setScale(0.305);
@@ -148,6 +167,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         helpButton!.position = CGPointMake(self.size.width * 0.68, self.size.height - 34);
         helpButton!.zPosition = 1001;
         
+        selectedThrowable = NSUserDefaults.standardUserDefaults().stringForKey("throwable");
+        
+        if(selectedThrowable == nil) {
+            selectedThrowable = "marriagelicense";
+        }
+        
+        positionSlider = SKSpriteNode(imageNamed: selectedThrowable!);
+        positionSlider!.position = CGPointMake(self.size.width / 2, 120);
+        positionSlider!.zPosition = 1100;
+        positionSlider!.setScale(0.5);
+        self.addChild(positionSlider!);
+        
+        track = SKSpriteNode(imageNamed: "track");
+        track!.position = CGPointMake(self.size.width / 2, 120);
+        track!.zPosition = 1000;
+        track!.setScale(0.5);
+        self.addChild(track!);
+        
         self.addChild(helpButton!);
         self.addChild(inventoryButton!);
         self.addChild(divorceLabel!);
@@ -155,7 +192,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(missesButton!);
         self.addChild(divorceButton!);
         self.addChild(storeButton!);
-        self.addChild(settingsButton!);
+        self.addChild(muteButton!);
         self.addChild(hitsLeftLabel!);
         self.addChild(bgTop);
         self.addChild(kimSprite!);
@@ -226,12 +263,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if(audioPlayerLaugh != nil) {
                 audioPlayerLaugh!.numberOfLoops = -1;
-                audioPlayerLaugh!.play();
+                if(!muted) {
+                    audioPlayerLaugh!.play();
+                }
             } else {
                 print("Error: \(error2!.localizedDescription)")
             }
             
-            gameOver = false;
+            gameOver = true;
             print("Lost!");
             
             kimSprite!.removeAllActions();
@@ -243,7 +282,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             continueButton = SKSpriteNode(imageNamed: "continuebutton");
             continueButton!.zPosition = 1200;
-            continueButton!.position = CGPointMake(self.size.width / 2, 120);
+            continueButton!.position = CGPointMake(self.size.width / 2, 200);
             continueButton!.setScale(0.35);
             self.addChild(continueButton!);
             
@@ -260,9 +299,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         missesLabel!.text = (3 - misses > 0) ? "\(3 - misses)" : "0";
         
-        var divorces = NSUserDefaults.standardUserDefaults().integerForKey("divorces");
-        
-        divorces = 1;
+        let divorces = NSUserDefaults.standardUserDefaults().integerForKey("divorces");
         
         divorceLabel!.text = "\(divorces)";
         
@@ -388,7 +425,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.Up:
-                throwObject()
+                if(!gameOver) {
+                    throwObject()
+                }
             default:
                 break
             }
@@ -406,7 +445,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             selectedThrowable = "marriagelicense";
         }
         
-        self.runAction(SKAction.playSoundFileNamed("bodyhit.mp3", waitForCompletion: false));
+        if(!muted) {
+            self.runAction(SKAction.playSoundFileNamed("bodyhit.mp3", waitForCompletion: false));
+        }
         
         let projectile = SKSpriteNode(imageNamed: selectedThrowable!)
         projectile.setScale(0.35);
@@ -415,7 +456,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let rotateAction = SKAction.rotateByAngle(5, duration: 0.25);
         projectile.runAction(SKAction.repeatActionForever(rotateAction));
         
-        projectile.position = CGPointMake(self.frame.size.width / 2, 0);
+        projectile.position = positionSlider!.position;
         
         projectile.physicsBody = SKPhysicsBody(rectangleOfSize: projectile.size, center: CGPointMake(0,0))
         
@@ -509,27 +550,216 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             }
             
+            if(muteButton != nil) {
+                if(muteButton!.containsPoint(location)) {
+                    toggleMute()
+                }
+            }
+            
+            if(storeButton != nil) {
+                if(storeButton!.containsPoint(location)) {
+                    openStore();
+                }
+            }
+            
+            if(storeCloseButton != nil) {
+            
+                if(storeCloseButton!.containsPoint(location)) {
+                    closeStore();
+                }
+                
+            }
+            
+            if(helpButton!.containsPoint(location)) {
+                
+                infoAlert = UIAlertView(title: "Help", message: "What would you like to learn about?", delegate: nil, cancelButtonTitle: "Nothing", otherButtonTitles: "Misses", "Divorces");
+                infoAlert!.delegate = self;
+                infoAlert!.show();
+                
+            }
+            
             if(divorceButton!.containsPoint(location)) {
                 
                 var numDivorces = NSUserDefaults.standardUserDefaults().integerForKey("divorces");
-                
-                numDivorces = 1;
 
                 if(numDivorces > 0 && !divorceUsed) {
                     
                     numDivorces--;
-                    NSUserDefaults.standardUserDefaults().setInteger(1, forKey: "divorces");
+                    NSUserDefaults.standardUserDefaults().setInteger(numDivorces, forKey: "divorces");
                     divorceUsed = true;
+                    updateLabels()
                     
                 } else {
                     
-                    let alert = UIAlertView(title: "No Divorces", message: "Sorry, it seems that you are out of divorces!", delegate: nil, cancelButtonTitle: "Ok");
-                    alert.show();
+                    divorceAlert = UIAlertView(title: "No Divorces", message: "Sorry, it seems that you are out of divorces! Would you like to watch a short video to earn 3 Free divorces?", delegate: nil, cancelButtonTitle: "No", otherButtonTitles: "Yes");
+                    divorceAlert!.delegate = self;
+                    divorceAlert!.show();
                     
                 }
                 
             }
+            
+            if(positionSlider!.containsPoint(location)) {
+                movingSlider = true;
+            }
+            
         }
+        
+    }
+    
+    var storeBg : SKSpriteNode?;
+    var creditsLabel : SKLabelNode?;
+    var credits : Int = 0;
+    
+    var flagButton : SKSpriteNode?
+    var chairButton : SKSpriteNode?
+    var divorceBuyButton : SKSpriteNode?
+    var storeCloseButton : SKSpriteNode?
+    
+    var storeOpen : Bool = false;
+    
+    func openStore() {
+        
+        if(!storeOpen) {
+            
+            storeOpen = true;
+            credits = NSUserDefaults.standardUserDefaults().integerForKey("credits");
+            
+            storeBg = SKSpriteNode(imageNamed: "storebackground");
+            storeBg!.position = CGPointMake(self.frame.size.width / 2, self.size.height / 2);
+            storeBg!.setScale(0.35)
+            storeBg!.zPosition = 2500;
+            
+            creditsLabel = SKLabelNode(text: "\(credits)");
+            creditsLabel!.position = CGPointMake(self.frame.size.width / 2 + 10, (self.frame.size.height / 2) + 85);
+            creditsLabel!.fontSize = 16;
+            creditsLabel!.fontName = "Helvetica-Bold";
+            creditsLabel!.zPosition = 2501;
+            
+            flagButton = SKSpriteNode(imageNamed: "flag3background");
+            flagButton!.position = CGPointMake(self.frame.size.width / 2, self.size.height / 2 + 30);
+            flagButton!.setScale(0.35)
+            flagButton!.zPosition = 2501;
+            
+            chairButton = SKSpriteNode(imageNamed: "chair1background");
+            chairButton!.position = CGPointMake(self.frame.size.width / 2, self.size.height / 2 - 45);
+            chairButton!.setScale(0.35)
+            chairButton!.zPosition = 2501;
+            
+            divorceBuyButton = SKSpriteNode(imageNamed: "divorcebackground");
+            divorceBuyButton!.position = CGPointMake(self.frame.size.width / 2, self.size.height / 2 - 120);
+            divorceBuyButton!.setScale(0.35)
+            divorceBuyButton!.zPosition = 2501;
+            
+            storeCloseButton = SKSpriteNode(imageNamed: "closebutton");
+            storeCloseButton!.position = CGPointMake(self.frame.size.width / 2 + storeBg!.frame.size.width / 2 - 15, self.size.height / 2 + storeBg!.frame.size.height / 2 - 30);
+            storeCloseButton!.setScale(0.35)
+            storeCloseButton!.zPosition = 2501;
+            
+            self.addChild(storeCloseButton!)
+            self.addChild(divorceBuyButton!)
+            self.addChild(chairButton!)
+            self.addChild(flagButton!)
+            self.addChild(creditsLabel!)
+            self.addChild(storeBg!)
+            
+        }
+        
+    }
+    
+    func closeStore() {
+        
+        if(storeOpen) {
+            storeOpen = false;
+            self.removeChildrenInArray([storeBg!, creditsLabel!, flagButton!, divorceBuyButton!, chairButton!, storeCloseButton!]);
+        }
+        
+        
+    }
+    
+    var muted : Bool = false;
+    
+    func toggleMute() {
+        
+        if(muted) {
+         
+            muted = false;
+            muteButton!.texture = SKTexture(imageNamed: "muteoff");
+            audioPlayer!.play()
+            if(gameOver) {
+                audioPlayerLaugh!.play()
+            }
+        } else {
+            
+            muted = true;
+            muteButton!.texture = SKTexture(imageNamed: "muteon");
+            audioPlayer!.pause()
+            
+            if(gameOver) {
+                audioPlayerLaugh!.pause()
+            }
+        }
+        
+        
+        NSUserDefaults.standardUserDefaults().setBool(muted, forKey: "muted")
+        
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        for touch: AnyObject in touches {
+            
+            let location = touch.locationInNode(self)
+            if(movingSlider) {
+
+                if(location.x > (self.size.width / 2 - track!.size.width / 2) + positionSlider!.size.width / 2 && location.x < (self.size.width / 2 + track!.size.width / 2) - positionSlider!.size.width / 2) {
+                    
+                    positionSlider!.position = CGPointMake(location.x, positionSlider!.position.y);
+
+                }
+            }
+            
+        }
+
+        
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        movingSlider = false;
+        
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        
+        
+        if(divorceAlert != nil && alertView == divorceAlert!) {
+        
+            if(buttonIndex == 1) {
+                
+                // show add
+                
+                let divorces : Int = NSUserDefaults.standardUserDefaults().integerForKey("divorces");
+                NSUserDefaults.standardUserDefaults().setInteger(divorces + 3, forKey: "divorces");
+                
+            }
+            
+        }
+        
+        if(infoAlert != nil && alertView == infoAlert) {
+            
+            if(buttonIndex == 1) {
+                let alert = UIAlertView(title: "Misses", message: "You can miss Kim up to 3 times before you lose. The 'Misses Left' section at the bottom of the screens tells you how many more times you can miss before you lose", delegate: nil, cancelButtonTitle: "Ok");
+                alert.show();
+            }
+            
+            if(buttonIndex == 2) {
+                let alert = UIAlertView(title: "Divorces", message: "Divorces cut Kim's speed in half. You can only use 1 per level. You can obtain more divorces by playing the game, or you can buy more in the store.", delegate: nil, cancelButtonTitle: "Ok");
+                alert.show();
+            }
+            
+        }
+
         
     }
 

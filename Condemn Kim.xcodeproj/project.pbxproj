@@ -47,6 +47,15 @@
 		E14964D11BD97120003F7D2E /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14964C41BD97120003F7D2E /* button.wav */; };
 		E14964D21BD97120003F7D2E /* divorce.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14964C51BD97120003F7D2E /* divorce.wav */; };
 		E14964D41BD97777003F7D2E /* losetext.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964D31BD97777003F7D2E /* losetext.png */; };
+		E1F4E0901BE25FFB00216E74 /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F4E08F1BE25FFB00216E74 /* thumb.png */; };
+		E1F4E0921BE26AFE00216E74 /* track.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F4E0911BE26AFE00216E74 /* track.png */; };
+		E1F4E0941BE2A31400216E74 /* storebackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F4E0931BE2A31400216E74 /* storebackground.png */; };
+		E1F4E0961BE2A77700216E74 /* flag3background.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F4E0951BE2A77700216E74 /* flag3background.png */; };
+		E1F4E0981BE2A7FE00216E74 /* chair1background.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F4E0971BE2A7FE00216E74 /* chair1background.png */; };
+		E1F4E09A1BE2A84B00216E74 /* divorcebackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F4E0991BE2A84B00216E74 /* divorcebackground.png */; };
+		E1F4E09C1BE2A89E00216E74 /* closebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F4E09B1BE2A89E00216E74 /* closebutton.png */; };
+		E1F4E0BF1BE3E73C00216E74 /* muteon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F4E0BD1BE3E73C00216E74 /* muteon.png */; };
+		E1F4E0C01BE3E73C00216E74 /* muteoff.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F4E0BE1BE3E73C00216E74 /* muteoff.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +113,16 @@
 		E14964C41BD97120003F7D2E /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
 		E14964C51BD97120003F7D2E /* divorce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = divorce.wav; sourceTree = "<group>"; };
 		E14964D31BD97777003F7D2E /* losetext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = losetext.png; sourceTree = "<group>"; };
+		E1F4E08F1BE25FFB00216E74 /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
+		E1F4E0911BE26AFE00216E74 /* track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track.png; sourceTree = "<group>"; };
+		E1F4E0931BE2A31400216E74 /* storebackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storebackground.png; sourceTree = "<group>"; };
+		E1F4E0951BE2A77700216E74 /* flag3background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag3background.png; sourceTree = "<group>"; };
+		E1F4E0971BE2A7FE00216E74 /* chair1background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chair1background.png; sourceTree = "<group>"; };
+		E1F4E0991BE2A84B00216E74 /* divorcebackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = divorcebackground.png; sourceTree = "<group>"; };
+		E1F4E09B1BE2A89E00216E74 /* closebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closebutton.png; sourceTree = "<group>"; };
+		E1F4E0BB1BE2E07300216E74 /* Supersonic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Supersonic.framework; path = "Condemn Kim/Supersonic.framework"; sourceTree = "<group>"; };
+		E1F4E0BD1BE3E73C00216E74 /* muteon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muteon.png; sourceTree = "<group>"; };
+		E1F4E0BE1BE3E73C00216E74 /* muteoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muteoff.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +146,7 @@
 		E149645F1BD926EF003F7D2E = {
 			isa = PBXGroup;
 			children = (
+				E1F4E0BB1BE2E07300216E74 /* Supersonic.framework */,
 				E149646A1BD926EF003F7D2E /* Condemn Kim */,
 				E14964841BD926EF003F7D2E /* Condemn KimTests */,
 				E14964691BD926EF003F7D2E /* Products */,
@@ -189,6 +209,15 @@
 		E149649D1BD927B1003F7D2E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E1F4E0BD1BE3E73C00216E74 /* muteon.png */,
+				E1F4E0BE1BE3E73C00216E74 /* muteoff.png */,
+				E1F4E09B1BE2A89E00216E74 /* closebutton.png */,
+				E1F4E0991BE2A84B00216E74 /* divorcebackground.png */,
+				E1F4E0971BE2A7FE00216E74 /* chair1background.png */,
+				E1F4E0951BE2A77700216E74 /* flag3background.png */,
+				E1F4E0931BE2A31400216E74 /* storebackground.png */,
+				E1F4E0911BE26AFE00216E74 /* track.png */,
+				E1F4E08F1BE25FFB00216E74 /* thumb.png */,
 				E14964D31BD97777003F7D2E /* losetext.png */,
 				E14964B61BD968FC003F7D2E /* continuebutton.png */,
 				E14964B41BD96660003F7D2E /* gameoverbg.png */,
@@ -316,22 +345,30 @@
 				E14964CC1BD97120003F7D2E /* simplehappy.mp3 in Resources */,
 				E14964B71BD968FC003F7D2E /* continuebutton.png in Resources */,
 				E14964A41BD953E1003F7D2E /* settingsicon.png in Resources */,
+				E1F4E0C01BE3E73C00216E74 /* muteoff.png in Resources */,
+				E1F4E09C1BE2A89E00216E74 /* closebutton.png in Resources */,
 				E14964A11BD93322003F7D2E /* bgtop.png in Resources */,
 				E149647C1BD926EF003F7D2E /* LaunchScreen.xib in Resources */,
+				E1F4E0961BE2A77700216E74 /* flag3background.png in Resources */,
 				E14964C91BD97120003F7D2E /* bodyhit.mp3 in Resources */,
 				E14964C61BD97120003F7D2E /* beepend.m4a in Resources */,
+				E1F4E0901BE25FFB00216E74 /* thumb.png in Resources */,
 				E14964AD1BD95D82003F7D2E /* questionbutton.png in Resources */,
 				E14964A91BD956AE003F7D2E /* missesbutton.png in Resources */,
 				E14964971BD927A8003F7D2E /* kimblink.png in Resources */,
 				E14964791BD926EF003F7D2E /* Images.xcassets in Resources */,
 				E149649B1BD927A8003F7D2E /* kimnormal.png in Resources */,
+				E1F4E0921BE26AFE00216E74 /* track.png in Resources */,
 				E14964AB1BD95CC1003F7D2E /* inventorybutton.png in Resources */,
 				E14964C81BD97120003F7D2E /* beepsingle.m4a in Resources */,
 				E14964701BD926EF003F7D2E /* GameScene.sks in Resources */,
 				E14964D01BD97120003F7D2E /* behappy.wav in Resources */,
+				E1F4E0BF1BE3E73C00216E74 /* muteon.png in Resources */,
+				E1F4E0941BE2A31400216E74 /* storebackground.png in Resources */,
 				E14964A51BD953E1003F7D2E /* storebutton.png in Resources */,
 				E14964CE1BD97120003F7D2E /* witch2.mp3 in Resources */,
 				E149649A1BD927A8003F7D2E /* kimlaugh2.png in Resources */,
+				E1F4E09A1BE2A84B00216E74 /* divorcebackground.png in Resources */,
 				E14964A01BD93322003F7D2E /* bgbottom.png in Resources */,
 				E14964981BD927A8003F7D2E /* kimhitsprite.png in Resources */,
 				E14964771BD926EF003F7D2E /* Main.storyboard in Resources */,
@@ -347,6 +384,7 @@
 				E14964D41BD97777003F7D2E /* losetext.png in Resources */,
 				E14964B11BD965AB003F7D2E /* WinScene.sks in Resources */,
 				E14964CA1BD97120003F7D2E /* happy.mp3 in Resources */,
+				E1F4E0981BE2A7FE00216E74 /* chair1background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,8 +533,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Condemn",
+					Kim,
+				);
 				INFOPLIST_FILE = "Condemn Kim/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.endlessspiral.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -506,8 +550,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Condemn",
+					Kim,
+				);
 				INFOPLIST_FILE = "Condemn Kim/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.endlessspiral.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -14,10 +14,13 @@ class WinScene: SKScene {
     var continueButton : SKSpriteNode?;
     var bg : SKSpriteNode?
     var audioPlayer : AVAudioPlayer?
+    var muted : Bool = false
     override func didMoveToView(view: SKView) {
         
         
         var error : NSError?;
+        
+        muted = NSUserDefaults.standardUserDefaults().boolForKey("muted");
         
         let url:NSURL? = NSBundle.mainBundle().URLForResource("simplehappy", withExtension: "mp3")
         do {
@@ -28,7 +31,10 @@ class WinScene: SKScene {
         }
         
         if(audioPlayer != nil) {
-            audioPlayer!.play();
+            if(!muted) {
+                audioPlayer!.play();
+            }
+            
         } else {
             print("Error: \(error!.localizedDescription)")
         }
@@ -42,6 +48,7 @@ class WinScene: SKScene {
         
         continueButton = SKSpriteNode(imageNamed: "continuebutton");
         continueButton!.position = CGPointMake(self.size.width / 2, 60);
+        continueButton!.zPosition = 2500;
         continueButton!.setScale(0.35);
         self.addChild(continueButton!);
         
