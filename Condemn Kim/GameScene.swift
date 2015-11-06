@@ -9,6 +9,9 @@
 import SpriteKit
 import AVFoundation
 import UIKit
+import Parse
+import ParseFacebookUtilsV4
+import FBSDKShareKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
     
@@ -34,6 +37,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
     var audioPlayerLaugh : AVAudioPlayer?
     var positionSlider : SKSpriteNode?
     var track : SKSpriteNode?;
+    var fbButton : SKSpriteNode?;
     
     var divorceAlert : UIAlertView?;
     var infoAlert : UIAlertView?;
@@ -43,6 +47,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
         view.backgroundColor = UIColor.blackColor();
         self.physicsBody = nil;
         self.physicsWorld.contactDelegate = self
+        
         setupGame()
         
     }
@@ -183,6 +188,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
         track!.position = CGPointMake(self.size.width / 2, 120);
         track!.zPosition = 1000;
         track!.setScale(0.5);
+        
+        fbButton = SKSpriteNode(imageNamed: "facebookbutton");
+        fbButton!.setScale(0.35)
+        fbButton!.zPosition = 1000;
+        fbButton!.position = CGPointMake(self.size.width * 0.63, self.size.height - 34);
+        
+        self.addChild(fbButton!);
         self.addChild(track!);
         
         self.addChild(helpButton!);
@@ -203,7 +215,97 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
         updateHits();
         updateLabels();
         
+        loadDataFromParse()
 
+        
+    }
+    
+    var loggedIn : Bool = false;
+    
+    func _loginWithFacebook() {
+        
+        
+        if(!loggedIn) {
+        
+            let permissionsArray = ["user_about_me", "user_relationships", "user_birthday", "user_location"];
+        
+            PFFacebookUtils.logInInBackgroundWithReadPermissions(permissionsArray) { (user, error) -> Void in
+                print("Finished block");
+                print("User: \(user)");
+                print("Error: \(error)");
+                
+                if(user != nil) {
+                    let alert = UIAlertView(title: "Logged In", message: "You successfully logged into Facebook! You're progress will now be saved in the cloud!", delegate: nil, cancelButtonTitle: "Ok");
+                    alert.show();
+                    
+                    print("Logged in");
+                    self._loadData();
+                    self.loadDataFromParse();
+                    
+                } else {
+                    let alert = UIAlertView(title: "Login Failed", message: "Sorry, it appears that something went wrong while trying to log into Facebook. Please try again.", delegate: nil, cancelButtonTitle: "Ok");
+                    alert.show();
+                    print("Failed Login");
+                }
+            }
+            
+        } else {
+            let alert = UIAlertView(title: "Already Logged In", message: "You are already logged into Facebook!", delegate: nil, cancelButtonTitle: "Ok");
+            alert.show();
+            
+        }
+        
+    
+    }
+    
+
+    func _loadData() {
+        
+        let request : FBSDKGraphRequest = FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields": "name, email"]);
+        request.startWithCompletionHandler { (FBSDKGraphRequestConnection, result, NSError) -> Void in
+            
+            let currentUser = PFUser.currentUser();
+            
+            var dict = result as! Dictionary<String, String> ;
+            
+            print("Dict: \(dict)");
+            currentUser!.setValue(dict["name"], forKey: "name");
+            
+            let parseLevel : Int? = currentUser!.valueForKey("level") as? Int;
+            let localLevel : Int = NSUserDefaults.standardUserDefaults().integerForKey("level");
+            
+            if(parseLevel != nil && parseLevel > localLevel) {
+                
+                NSUserDefaults.standardUserDefaults().setInteger(parseLevel!, forKey: "level")
+                
+            } else {
+                
+                currentUser!.setValue(localLevel, forKey: "level");
+                
+            }
+            
+            let parseDivorces : Int? = currentUser!.valueForKey("divorces") as? Int;
+            let localDivorces : Int = NSUserDefaults.standardUserDefaults().integerForKey("divorces");
+            
+            if(parseDivorces != nil && parseDivorces > localDivorces) {
+                
+                NSUserDefaults.standardUserDefaults().setInteger(parseDivorces!, forKey: "divorces")
+                
+            } else {
+                
+                currentUser!.setValue(localDivorces, forKey: "divorces");
+                
+            }
+            
+            
+            
+            currentUser!.saveInBackgroundWithBlock({ (success, error) -> Void in
+                if(success) {
+                    NSUserDefaults.standardUserDefaults().setValue(true, forKey: "loggedin");
+                }
+            })
+            
+        }
         
     }
     
@@ -214,6 +316,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
             level = 1;
         }
         
+        NSUserDefaults.standardUserDefaults().setInteger(level, forKey: "level");
         var hitsLeft : Int = level - numHits;
         
         if(hitsLeft <= 0) {
@@ -224,16 +327,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
         hitsLeftLabel!.text = "Hits Left: \(hitsLeft)";
         
     }
+    
+    func loadDataFromParse() {
+        
+        let user = PFUser.currentUser();
+        
+        if(user != nil) {
+            print("User: \(user)");
+            fbButton!.texture = SKTexture(imageNamed: "leaderboard");
+        }
+        
+    }
    
     func endGame(win: Bool) {
         
         if(win) {
             audioPlayer!.stop();
             var level = NSUserDefaults.standardUserDefaults().integerForKey("level");
+
             level++;
             NSUserDefaults.standardUserDefaults().setInteger(level, forKey: "level");
-            print("Win!");
-            
+            let user = PFUser.currentUser();
+            if(user != nil) {
+                user!.setValue(level, forKey: "level");
+                user!.saveInBackground();
+            }
             
             if let scene = WinScene.unarchiveFromFile("WinScene", type: 1) as? WinScene {
                 // Configure the view.
@@ -271,7 +389,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
             }
             
             gameOver = true;
-            print("Lost!");
             
             kimSprite!.removeAllActions();
             kimSprite!.runAction(SKAction.rotateToAngle(0, duration: 0.25));
@@ -363,8 +480,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
         
         var speedModifier = 1 + Double(level!) / 100;
         
-        print("Speed Mod: \(speedModifier)");
-        
         if(speedModifier < 1) {
             speedModifier = 1;
         }
@@ -413,7 +528,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
             speed *= 2;
         }
         
-        print("Speed: \(speed)")
         kimSprite!.runAction(SKAction.moveTo(targetPosition, duration: speed), completion: { () -> Void in
             self.changeDirection();
         })
@@ -556,6 +670,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
                 }
             }
             
+            if(fbButton != nil && fbButton!.containsPoint(location)) {
+            
+                loggedIn = NSUserDefaults.standardUserDefaults().boolForKey("loggedin");
+
+                if(!loggedIn) {
+                    _loginWithFacebook();
+                } else {
+                    // TODO Show leaderboards
+                }
+            }
+            
             if(storeButton != nil) {
                 if(storeButton!.containsPoint(location)) {
                     openStore();
@@ -586,6 +711,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
                     
                     numDivorces--;
                     NSUserDefaults.standardUserDefaults().setInteger(numDivorces, forKey: "divorces");
+                    var currentUser = PFUser.currentUser();
+                    currentUser!.setValue(numDivorces, forKey: "divorces");
+                    currentUser!.saveInBackground();
+                    
                     divorceUsed = true;
                     updateLabels()
                     

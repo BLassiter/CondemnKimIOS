@@ -1,4 +1,4 @@
-//
+	//
 //  AppDelegate.swift
 //  Condemn Kim
 //
@@ -7,7 +7,11 @@
 //
 
 import UIKit
-
+import FBSDKCoreKit
+import Parse
+import Bolts
+import ParseFacebookUtilsV4
+    
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,8 +19,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions);
+        FBSDKAppEvents.activateApp();
         
+        // [Optional] Power your app with Local Datastore. For more info, go to
+        Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
+        Parse.setApplicationId("L6d8gYIOZ3TNTj7DV86VmW2bLKCWMP5lgg3GGGKR",
+            clientKey: "p3VwjmX4oUvPGZA9QweEcbcIXPrFzDOqYm5XDRgO")
+        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions);
+        
+        // [Optional] Track statistics around application opens.
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         return true
     }
 
@@ -41,7 +57,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        print("open URL appdelgate callback")
+        return FBSDKApplicationDelegate.sharedInstance().application(application,
+            openURL: url,
+            sourceApplication: sourceApplication,
+            annotation: annotation)
+    }
 
 }
 
