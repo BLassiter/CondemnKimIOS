@@ -36,6 +36,12 @@
             </dict>
         </dict>
     </dict>
+    
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -77,6 +83,10 @@
     <key>LSApplicationQueriesSchemes</key>
     <array>
         <string>fbauth2</string>
+        <string>fb</string>
+        <string>instagram</string>
+        <string>tumblr</string>
+        <string>twitter</string>
     </array>
 </dict>
 </plist>

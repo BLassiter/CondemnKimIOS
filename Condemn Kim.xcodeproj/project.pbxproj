@@ -65,6 +65,26 @@
 		E14964D11BD97120003F7D2E /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14964C41BD97120003F7D2E /* button.wav */; };
 		E14964D21BD97120003F7D2E /* divorce.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14964C51BD97120003F7D2E /* divorce.wav */; };
 		E14964D41BD97777003F7D2E /* losetext.png in Resources */ = {isa = PBXBuildFile; fileRef = E14964D31BD97777003F7D2E /* losetext.png */; };
+		E15928911BF7D22800974198 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E159288F1BF7D22800974198 /* LeaderboardViewController.swift */; };
+		E15928921BF7D22800974198 /* LeaderboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15928901BF7D22800974198 /* LeaderboardViewController.xib */; };
+		E15928951BF7D6D800974198 /* LeaderboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15928931BF7D6D800974198 /* LeaderboardCell.swift */; };
+		E15928961BF7D6D800974198 /* LeaderboardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15928941BF7D6D800974198 /* LeaderboardCell.xib */; };
+		E159289D1BF7E6FC00974198 /* LeaderboardHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E159289B1BF7E6FC00974198 /* LeaderboardHeaderCell.swift */; };
+		E159289E1BF7E6FC00974198 /* LeaderboardHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E159289C1BF7E6FC00974198 /* LeaderboardHeaderCell.xib */; };
+		E15928A01BF7F96E00974198 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E159289F1BF7F96E00974198 /* libz.1.2.5.tbd */; };
+		E15928A21BF7F98D00974198 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15928A11BF7F98D00974198 /* AdColony.framework */; };
+		E15928A41BF7F99B00974198 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15928A31BF7F99B00974198 /* AVFoundation.framework */; };
+		E15928A71BF7F9B200974198 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15928A51BF7F9B200974198 /* CoreMedia.framework */; };
+		E15928A81BF7F9B200974198 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15928A61BF7F9B200974198 /* CoreTelephony.framework */; };
+		E15928AA1BF7F9B700974198 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15928A91BF7F9B700974198 /* EventKit.framework */; };
+		E15928AC1BF7F9C700974198 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15928AB1BF7F9C700974198 /* MediaPlayer.framework */; };
+		E15928AE1BF7F9D100974198 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15928AD1BF7F9D100974198 /* MessageUI.framework */; };
+		E15928AF1BF7F9DD00974198 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E126BF7C1BEC021400F92E16 /* Social.framework */; };
+		E15928B11BF7F9F600974198 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15928B01BF7F9F600974198 /* WebKit.framework */; };
+		E15928B41BF7FDEF00974198 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15928B31BF7FDEF00974198 /* AdSupport.framework */; };
+		E15928BB1BF805E300974198 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15928B91BF805E300974198 /* StatsViewController.swift */; };
+		E15928BC1BF805E300974198 /* StatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15928BA1BF805E300974198 /* StatsViewController.xib */; };
+		E15928BE1BF8110A00974198 /* statsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E15928BD1BF8110A00974198 /* statsicon.png */; };
 		E1F4E0901BE25FFB00216E74 /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F4E08F1BE25FFB00216E74 /* thumb.png */; };
 		E1F4E0921BE26AFE00216E74 /* track.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F4E0911BE26AFE00216E74 /* track.png */; };
 		E1F4E0941BE2A31400216E74 /* storebackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F4E0931BE2A31400216E74 /* storebackground.png */; };
@@ -151,6 +171,26 @@
 		E14964C41BD97120003F7D2E /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
 		E14964C51BD97120003F7D2E /* divorce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = divorce.wav; sourceTree = "<group>"; };
 		E14964D31BD97777003F7D2E /* losetext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = losetext.png; sourceTree = "<group>"; };
+		E159288F1BF7D22800974198 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		E15928901BF7D22800974198 /* LeaderboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderboardViewController.xib; sourceTree = "<group>"; };
+		E15928931BF7D6D800974198 /* LeaderboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardCell.swift; sourceTree = "<group>"; };
+		E15928941BF7D6D800974198 /* LeaderboardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderboardCell.xib; sourceTree = "<group>"; };
+		E159289B1BF7E6FC00974198 /* LeaderboardHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeaderboardHeaderCell.swift; path = ../LeaderboardHeaderCell.swift; sourceTree = "<group>"; };
+		E159289C1BF7E6FC00974198 /* LeaderboardHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LeaderboardHeaderCell.xib; path = ../LeaderboardHeaderCell.xib; sourceTree = "<group>"; };
+		E159289F1BF7F96E00974198 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		E15928A11BF7F98D00974198 /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdColony.framework; sourceTree = "<group>"; };
+		E15928A31BF7F99B00974198 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E15928A51BF7F9B200974198 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		E15928A61BF7F9B200974198 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		E15928A91BF7F9B700974198 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		E15928AB1BF7F9C700974198 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		E15928AD1BF7F9D100974198 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		E15928B01BF7F9F600974198 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		E15928B21BF7FA9D00974198 /* CondemnKim-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CondemnKim-Bridging-Header.h"; sourceTree = "<group>"; };
+		E15928B31BF7FDEF00974198 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		E15928B91BF805E300974198 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		E15928BA1BF805E300974198 /* StatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatsViewController.xib; sourceTree = "<group>"; };
+		E15928BD1BF8110A00974198 /* statsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statsicon.png; sourceTree = "<group>"; };
 		E1F4E08F1BE25FFB00216E74 /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
 		E1F4E0911BE26AFE00216E74 /* track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track.png; sourceTree = "<group>"; };
 		E1F4E0931BE2A31400216E74 /* storebackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storebackground.png; sourceTree = "<group>"; };
@@ -168,15 +208,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E15928B41BF7FDEF00974198 /* AdSupport.framework in Frameworks */,
+				E15928B11BF7F9F600974198 /* WebKit.framework in Frameworks */,
+				E126BF831BEC0C4500F92E16 /* SystemConfiguration.framework in Frameworks */,
+				E126BF791BEC020200F92E16 /* StoreKit.framework in Frameworks */,
+				E15928AF1BF7F9DD00974198 /* Social.framework in Frameworks */,
+				E15928AE1BF7F9D100974198 /* MessageUI.framework in Frameworks */,
+				E15928AC1BF7F9C700974198 /* MediaPlayer.framework in Frameworks */,
+				E15928AA1BF7F9B700974198 /* EventKit.framework in Frameworks */,
+				E15928A71BF7F9B200974198 /* CoreMedia.framework in Frameworks */,
+				E15928A81BF7F9B200974198 /* CoreTelephony.framework in Frameworks */,
+				E15928A41BF7F99B00974198 /* AVFoundation.framework in Frameworks */,
+				E15928A01BF7F96E00974198 /* libz.1.2.5.tbd in Frameworks */,
 				E146E6451BEE571A00FDD742 /* FBSDKCoreKit.framework in Frameworks */,
 				E146E6461BEE571A00FDD742 /* FBSDKLoginKit.framework in Frameworks */,
 				E146E6471BEE571A00FDD742 /* FBSDKShareKit.framework in Frameworks */,
 				E146E6481BEE571A00FDD742 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				E146E6491BEE571A00FDD742 /* Parse.framework in Frameworks */,
-				E126BF831BEC0C4500F92E16 /* SystemConfiguration.framework in Frameworks */,
+				E15928A21BF7F98D00974198 /* AdColony.framework in Frameworks */,
 				E126BF811BEC022700F92E16 /* libsqlite3.tbd in Frameworks */,
 				E126BF7F1BEC021A00F92E16 /* libz.tbd in Frameworks */,
-				E126BF791BEC020200F92E16 /* StoreKit.framework in Frameworks */,
 				E126BF771BEC01F900F92E16 /* Security.framework in Frameworks */,
 				E126BF751BEC01F100F92E16 /* QuartzCore.framework in Frameworks */,
 				E126BF731BEC01ED00F92E16 /* CFNetwork.framework in Frameworks */,
@@ -200,6 +251,16 @@
 		E149645F1BD926EF003F7D2E = {
 			isa = PBXGroup;
 			children = (
+				E15928B31BF7FDEF00974198 /* AdSupport.framework */,
+				E15928B21BF7FA9D00974198 /* CondemnKim-Bridging-Header.h */,
+				E15928B01BF7F9F600974198 /* WebKit.framework */,
+				E15928AD1BF7F9D100974198 /* MessageUI.framework */,
+				E15928AB1BF7F9C700974198 /* MediaPlayer.framework */,
+				E15928A91BF7F9B700974198 /* EventKit.framework */,
+				E15928A51BF7F9B200974198 /* CoreMedia.framework */,
+				E15928A61BF7F9B200974198 /* CoreTelephony.framework */,
+				E15928A31BF7F99B00974198 /* AVFoundation.framework */,
+				E159289F1BF7F96E00974198 /* libz.1.2.5.tbd */,
 				E146E6401BEE571A00FDD742 /* FBSDKCoreKit.framework */,
 				E146E6411BEE571A00FDD742 /* FBSDKLoginKit.framework */,
 				E146E6421BEE571A00FDD742 /* FBSDKShareKit.framework */,
@@ -234,6 +295,7 @@
 				E126BF721BEC01ED00F92E16 /* CFNetwork.framework */,
 				E126BF6E1BEC01E600F92E16 /* CoreGraphics.framework */,
 				E126BF6F1BEC01E600F92E16 /* CoreLocation.framework */,
+				E15928A11BF7F98D00974198 /* AdColony.framework */,
 				E126BF6C1BEC01D200F92E16 /* AudioToolbox.framework */,
 				E1F4E0BB1BE2E07300216E74 /* Supersonic.framework */,
 				E126BF681BEC019900F92E16 /* Bolts.framework */,
@@ -242,6 +304,12 @@
 				E149646D1BD926EF003F7D2E /* AppDelegate.swift */,
 				E149646F1BD926EF003F7D2E /* GameScene.sks */,
 				E14964711BD926EF003F7D2E /* GameScene.swift */,
+				E159289B1BF7E6FC00974198 /* LeaderboardHeaderCell.swift */,
+				E159289C1BF7E6FC00974198 /* LeaderboardHeaderCell.xib */,
+				E159288F1BF7D22800974198 /* LeaderboardViewController.swift */,
+				E15928901BF7D22800974198 /* LeaderboardViewController.xib */,
+				E15928931BF7D6D800974198 /* LeaderboardCell.swift */,
+				E15928941BF7D6D800974198 /* LeaderboardCell.xib */,
 				E14964731BD926EF003F7D2E /* GameViewController.swift */,
 				E14964751BD926EF003F7D2E /* Main.storyboard */,
 				E14964781BD926EF003F7D2E /* Images.xcassets */,
@@ -249,6 +317,8 @@
 				E149646B1BD926EF003F7D2E /* Supporting Files */,
 				E14964B01BD965AB003F7D2E /* WinScene.sks */,
 				E14964B21BD965BB003F7D2E /* WinScene.swift */,
+				E15928B91BF805E300974198 /* StatsViewController.swift */,
+				E15928BA1BF805E300974198 /* StatsViewController.xib */,
 			);
 			path = "Condemn Kim";
 			sourceTree = "<group>";
@@ -281,6 +351,7 @@
 		E149649D1BD927B1003F7D2E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E15928BD1BF8110A00974198 /* statsicon.png */,
 				E126BF8A1BEC277700F92E16 /* leaderboard.png */,
 				E126BF841BEC0D6300F92E16 /* facebookbutton.png */,
 				E1F4E0BD1BE3E73C00216E74 /* muteon.png */,
@@ -438,6 +509,7 @@
 				E14964701BD926EF003F7D2E /* GameScene.sks in Resources */,
 				E14964D01BD97120003F7D2E /* behappy.wav in Resources */,
 				E1F4E0BF1BE3E73C00216E74 /* muteon.png in Resources */,
+				E15928921BF7D22800974198 /* LeaderboardViewController.xib in Resources */,
 				E1F4E0941BE2A31400216E74 /* storebackground.png in Resources */,
 				E14964A51BD953E1003F7D2E /* storebutton.png in Resources */,
 				E14964CE1BD97120003F7D2E /* witch2.mp3 in Resources */,
@@ -450,11 +522,15 @@
 				E14964CD1BD97120003F7D2E /* witch.mp3 in Resources */,
 				E14964CF1BD97120003F7D2E /* beep.wav in Resources */,
 				E14964991BD927A8003F7D2E /* kimlaugh1.png in Resources */,
+				E159289E1BF7E6FC00974198 /* LeaderboardHeaderCell.xib in Resources */,
 				E14964CB1BD97120003F7D2E /* hitsound.mp3 in Resources */,
 				E14964D21BD97120003F7D2E /* divorce.wav in Resources */,
+				E15928BE1BF8110A00974198 /* statsicon.png in Resources */,
 				E14964B51BD96660003F7D2E /* gameoverbg.png in Resources */,
 				E149649C1BD927A8003F7D2E /* marriagelicense.png in Resources */,
 				E14964D11BD97120003F7D2E /* button.wav in Resources */,
+				E15928BC1BF805E300974198 /* StatsViewController.xib in Resources */,
+				E15928961BF7D6D800974198 /* LeaderboardCell.xib in Resources */,
 				E14964A71BD955AE003F7D2E /* divorcebuttonnew.png in Resources */,
 				E14964D41BD97777003F7D2E /* losetext.png in Resources */,
 				E14964B11BD965AB003F7D2E /* WinScene.sks in Resources */,
@@ -479,7 +555,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E14964721BD926EF003F7D2E /* GameScene.swift in Sources */,
+				E15928951BF7D6D800974198 /* LeaderboardCell.swift in Sources */,
+				E15928BB1BF805E300974198 /* StatsViewController.swift in Sources */,
+				E159289D1BF7E6FC00974198 /* LeaderboardHeaderCell.swift in Sources */,
 				E14964B31BD965BB003F7D2E /* WinScene.swift in Sources */,
+				E15928911BF7D22800974198 /* LeaderboardViewController.swift in Sources */,
 				E14964741BD926EF003F7D2E /* GameViewController.swift in Sources */,
 				E149646E1BD926EF003F7D2E /* AppDelegate.swift in Sources */,
 			);
@@ -629,12 +709,15 @@
 					"$(PROJECT_DIR)/Condemn",
 					Kim,
 					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/Condemn",
+					Kim,
 				);
 				INFOPLIST_FILE = "Condemn Kim/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "-fobjc-arc";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.endlessspiral.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CondemnKim-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -654,12 +737,15 @@
 					"$(PROJECT_DIR)/Condemn",
 					Kim,
 					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/Condemn",
+					Kim,
 				);
 				INFOPLIST_FILE = "Condemn Kim/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "-fobjc-arc";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.endlessspiral.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CondemnKim-Bridging-Header.h";
 			};
 			name = Release;
 		};

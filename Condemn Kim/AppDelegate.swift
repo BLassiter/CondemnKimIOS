@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import Parse
 import Bolts
+
 import ParseFacebookUtilsV4
     
 @UIApplicationMain
@@ -33,6 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        AdColony.configureWithAppID("app069d5086d4d94626a9", zoneIDs: ["vz1720a2178a634eb581"], delegate: nil, logging: true)
+        
         return true
     }
 
