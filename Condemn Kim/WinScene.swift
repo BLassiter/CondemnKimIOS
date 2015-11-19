@@ -52,6 +52,16 @@ class WinScene: SKScene {
         continueButton!.setScale(0.35);
         self.addChild(continueButton!);
         
+        let level = NSUserDefaults.standardUserDefaults().integerForKey("level");
+        
+        if(level % 5 == 0) {
+            let divorces = NSUserDefaults.standardUserDefaults().integerForKey("divorces");
+            NSUserDefaults.standardUserDefaults().setValue(divorces+1, forKey: "divorces");
+            
+            var alert = UIAlertView(title: "Divorce Added", message: "Congratulations! You won a free divorce!", delegate: nil, cancelButtonTitle: "ok");
+            alert.show();
+        }
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

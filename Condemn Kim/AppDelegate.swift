@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
         AdColony.configureWithAppID("app069d5086d4d94626a9", zoneIDs: ["vz1720a2178a634eb581"], delegate: nil, logging: true)
+        Supersonic.sharedInstance();
         
         return true
     }

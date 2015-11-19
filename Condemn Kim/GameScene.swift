@@ -28,7 +28,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate, AdColon
     var missesButton : SKSpriteNode?
     var missesLabel : SKLabelNode?
     var divorceLabel : SKLabelNode?
-    var inventoryButton : SKSpriteNode?
     var helpButton : SKSpriteNode?;
     var continueButton : SKSpriteNode?
     var gameOver : Bool = false;
@@ -51,6 +50,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate, AdColon
         self.physicsWorld.contactDelegate = self
         
         setupGame()
+        
+        NSUserDefaults.standardUserDefaults().setValue(2000, forKey: "credits");
+        
+    }
+    
+    func changeThrowable() {
+        
+        print("Changed throwable");
+        
+        selectedThrowable = NSUserDefaults.standardUserDefaults().stringForKey("throwable");
+        
+        if(selectedThrowable == nil) {
+            selectedThrowable = "marriagelicense";
+        }
+        
+        positionSlider!.texture = SKTexture(imageNamed: selectedThrowable!);
         
     }
     
@@ -172,11 +187,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate, AdColon
         divorceLabel!.fontColor = UIColor.blackColor();
         divorceLabel!.fontSize = 14;
         
-        inventoryButton = SKSpriteNode(imageNamed: "inventorybutton");
-        inventoryButton!.setScale(0.3);
-        inventoryButton!.position = CGPointMake(self.size.width / 2, 55);
-        inventoryButton!.zPosition = 1001;
-        
         helpButton = SKSpriteNode(imageNamed: "questionbutton");
         helpButton!.setScale(0.35);
         helpButton!.position = CGPointMake(self.size.width * 0.68, self.size.height - 34);
@@ -186,6 +196,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate, AdColon
         
         if(selectedThrowable == nil) {
             selectedThrowable = "marriagelicense";
+            NSUserDefaults.standardUserDefaults().setValue(selectedThrowable, forKey: "throwable");
         }
         
         positionSlider = SKSpriteNode(imageNamed: selectedThrowable!);
@@ -217,7 +228,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate, AdColon
         self.addChild(track!);
         
         self.addChild(helpButton!);
-        self.addChild(inventoryButton!);
         self.addChild(divorceLabel!);
         self.addChild(missesLabel!);
         self.addChild(missesButton!);
@@ -798,7 +808,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate, AdColon
                    
                     if(PFUser.currentUser() != nil) {
 
-                        var currentUser = PFUser.currentUser();
+                        let currentUser = PFUser.currentUser();
                         currentUser!.setValue(numDivorces, forKey: "divorces");
                         
                         let divorcesUsed = currentUser!.valueForKey("divorcesUsed") as! Int
@@ -841,50 +851,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate, AdColon
     
     func openStore() {
         
-        if(!storeOpen) {
-            
-            storeOpen = true;
-            credits = NSUserDefaults.standardUserDefaults().integerForKey("credits");
-            
-            storeBg = SKSpriteNode(imageNamed: "storebackground");
-            storeBg!.position = CGPointMake(self.frame.size.width / 2, self.size.height / 2);
-            storeBg!.setScale(0.35)
-            storeBg!.zPosition = 2500;
-            
-            creditsLabel = SKLabelNode(text: "\(credits)");
-            creditsLabel!.position = CGPointMake(self.frame.size.width / 2 + 10, (self.frame.size.height / 2) + 85);
-            creditsLabel!.fontSize = 16;
-            creditsLabel!.fontName = "Helvetica-Bold";
-            creditsLabel!.zPosition = 2501;
-            
-            flagButton = SKSpriteNode(imageNamed: "flag3background");
-            flagButton!.position = CGPointMake(self.frame.size.width / 2, self.size.height / 2 + 30);
-            flagButton!.setScale(0.35)
-            flagButton!.zPosition = 2501;
-            
-            chairButton = SKSpriteNode(imageNamed: "chair1background");
-            chairButton!.position = CGPointMake(self.frame.size.width / 2, self.size.height / 2 - 45);
-            chairButton!.setScale(0.35)
-            chairButton!.zPosition = 2501;
-            
-            divorceBuyButton = SKSpriteNode(imageNamed: "divorcebackground");
-            divorceBuyButton!.position = CGPointMake(self.frame.size.width / 2, self.size.height / 2 - 120);
-            divorceBuyButton!.setScale(0.35)
-            divorceBuyButton!.zPosition = 2501;
-            
-            storeCloseButton = SKSpriteNode(imageNamed: "closebutton");
-            storeCloseButton!.position = CGPointMake(self.frame.size.width / 2 + storeBg!.frame.size.width / 2 - 15, self.size.height / 2 + storeBg!.frame.size.height / 2 - 30);
-            storeCloseButton!.setScale(0.35)
-            storeCloseButton!.zPosition = 2501;
-            
-            self.addChild(storeCloseButton!)
-            self.addChild(divorceBuyButton!)
-            self.addChild(chairButton!)
-            self.addChild(flagButton!)
-            self.addChild(creditsLabel!)
-            self.addChild(storeBg!)
-            
-        }
+        let currentViewController:UIViewController=UIApplication.sharedApplication().keyWindow!.rootViewController!
+        
+        let viewController : StoreViewController = StoreViewController();
+        viewController.presentingScene = self;
+        
+        currentViewController.presentViewController(viewController, animated: true, completion: nil)
         
     }
     

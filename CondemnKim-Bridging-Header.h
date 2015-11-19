@@ -8,3 +8,5 @@
 
 
 #import <AdColony/AdColony.h>
+#import <Supersonic/Supersonic.h>
+#import <Supersonic/SUSupersonicAdsConfiguration.h>

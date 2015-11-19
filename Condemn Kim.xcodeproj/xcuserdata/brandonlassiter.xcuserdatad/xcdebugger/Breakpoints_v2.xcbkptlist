@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Condemn Kim/GameScene.swift"
-            timestampString = "469244870.440656"
+            timestampString = "469661588.915432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "364"
-            endingLineNumber = "364"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "loadDataFromParse()"
             landmarkType = "5">
          </BreakpointContent>
